@@ -3,7 +3,7 @@ import React from "react";
 const Todo = props => {
   return (
     <div>
-      <strong>{props.todo.id}</strong> :<p>{props.todo.todo}</p>
+      <strong>Task</strong> :<p>{props.todo.value}</p>
     </div>
   );
 };

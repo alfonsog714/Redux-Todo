@@ -1,17 +1,17 @@
 // Imported actions
-import { ADD_TODO } from "../actions";
+import { ADD_TODO, TOGGLE_TODO } from "../actions";
 
 // Initial state
 const initialState = {
   todos: [
     {
       id: 1,
-      todo: "Throw out the trash",
+      value: "Throw out the trash",
       completed: false
     },
     {
       id: 2,
-      todo: "Wash the dishes",
+      value: "Throw out the trash",
       completed: false
     }
   ]
@@ -21,7 +21,17 @@ const initialState = {
 export const rootReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_TODO:
-      return [...state, action.payload];
+      return {
+        ...state,
+        todos: [
+          ...state.todos,
+          {
+            id: Math.floor(Math.random() * 10),
+            value: action.payload,
+            completed: false
+          }
+        ]
+      };
 
     default:
       return state;
